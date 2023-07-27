@@ -1,24 +1,19 @@
-
-import React,{useId, useState} from "react";
+import React from "react";
 import './../styles/App.css';
-
-const Tab = ({number, setState})=>{
-  
-     return (<li onClick={()=> setState(number)}>Tab {number}</li>)
-}
-
-const App = () => {
-  const [tab,setTab] = useState(1);
-
+import Tabs from "./Tabs";
+ 
+function App() {
+  const tabs = [
+    { title: "Tab 1", content: "This is the content for Tab 1." },
+    { title: "Tab 2", content: "This is the content for Tab 2." },
+    { title: "Tab 3", content: "This is the content for Tab 3." }
+  ];
+ 
   return (
     <div>
-        {/* Do not remove the main div */}
-    <ul>
-    {[1, 2, 3].map((val)=>(<Tab number={val} key={val} setState ={setState} />)}
-    </ul>
-      This is the content for {`Tab ${tab}`}.
+      <Tabs tabs={tabs} />
     </div>
-  )
+  );
 }
-
-export default App
+ 
+export default App;
